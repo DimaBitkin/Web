@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+}
+
+input[type="number"] {
+    width: 100%;  /*занимать всю ширину*/
+    padding: 10px;  /*отсутпы внутри поля*/
+    margin-bottom: 20px;  
+    border: 1px solid #ddd;  /*рамка по контуру*/
+    border-radius: 5px;  /*скругление краев*/
+    font-size: 16px;  /*размер текста */
+    background-color: #D3D3D3; /* Светло-зелёный фон */
+    text-align: center; /*текст по центру*/
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p#result {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #d4edda; /* Светло-зелёный фон */
+}
+
