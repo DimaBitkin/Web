@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Рейтинг изображений</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="add_remove.html">Добавить/Удалить картинки</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Топ изображений</h2>
+        <ul id="ratingList"></ul>
+    </main>
+    <script>
+        window.onload = async () => {
+            const list = document.getElementById('ratingList');
+            const response = await fetch('/api/images');
+            const images = await response.json();
+            const sortedImages = images.sort((a, b) => b.likes - a.likes);
+            sortedImages.forEach((image) => {
+                const li = document.createElement('li');
+                li.innerHTML = `ID: ${image.id}, Лайки: ${image.likes}`;
+                list.appendChild(li);
+            });
+        };
+    </script>
+</body>
+
+</html>

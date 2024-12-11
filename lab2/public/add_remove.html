@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить/Удалить картинки</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Добавить/Удалить картинки</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="rating.html">Рейтинг</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Добавить изображение</h2>
+        <form id="addForm">
+            <input type="text" id="path" placeholder="Введите путь к изображению">
+            <button type="submit">Добавить</button>
+        </form>
+
+        <h2>Удалить изображение</h2>
+        <form id="deleteForm">
+            <input type="number" id="id" placeholder="Введите ID изображения">
+            <button type="submit">Удалить</button>
+        </form>
+    </main>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

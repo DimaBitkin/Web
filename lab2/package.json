@@ -1,0 +1,14 @@
+{
+    "name": "image-service",
+    "version": "1.0.0",
+    "description": "RESTful API для управления изображениями",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "express": "^4.21.1",
+        "swagger-ui-express": "^4.6.3"
+    }
+}

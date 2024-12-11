@@ -1,0 +1,171 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Image Management API",
+        "description": "API для управления изображениями в галерее. Поддерживает добавление, удаление, лайки и дизлайки изображений."
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "paths": {
+        "/images": {
+            "get": {
+                "summary": "Получить список всех изображений",
+                "description": "Возвращает список всех изображений с информацией о них, включая лайки и дизлайки.",
+                "responses": {
+                    "200": {
+                        "description": "Список изображений успешно получен",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Image"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Ошибка сервера при получении списка изображений"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Добавить новое изображение",
+                "description": "Добавляет новое изображение в галерею. Требуется указать путь к изображению.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Путь к изображению",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "type": "string",
+                                    "example": "/images/photo.jpg"
+                                }
+                            },
+                            "required": [
+                                "path"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Изображение успешно добавлено",
+                        "schema": {
+                            "$ref": "#/definitions/Image"
+                        }
+                    },
+                    "400": {
+                        "description": "Ошибка в запросе (например, путь не указан)"
+                    }
+                }
+            }
+        },
+        "/images/{id}/{action}": {
+            "post": {
+                "summary": "Поставить лайк или дизлайк изображению",
+                "description": "Позволяет поставить лайк или дизлайк изображению. Укажите ID изображения и действие (`like` или `dislike`).",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "ID изображения"
+                    },
+                    {
+                        "name": "action",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "like",
+                            "dislike"
+                        ],
+                        "description": "Действие: 'like' для лайка или 'dislike' для дизлайка"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Лайк или дизлайк успешно добавлен",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "like added"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Некорректное действие (например, не 'like' или 'dislike')"
+                    },
+                    "404": {
+                        "description": "Изображение не найдено"
+                    }
+                }
+            }
+        },
+        "/images/{id}": {
+            "delete": {
+                "summary": "Удалить изображение по ID",
+                "description": "Удаляет изображение с указанным ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "description": "ID изображения"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Изображение успешно удалено",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "Image deleted"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Изображение с указанным ID не найдено"
+                    },
+                    "500": {
+                        "description": "Ошибка сервера при удалении изображения"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Image": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "path": {
+                    "type": "string",
+                    "example": "/images/photo.jpg"
+                },
+                "likes": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "dislikes": {
+                    "type": "integer",
+                    "example": 2
+                }
+            }
+        }
+    }
+}
