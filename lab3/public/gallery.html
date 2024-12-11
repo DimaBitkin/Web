@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Галерея</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="add_remove.html">Добавить/Удалить картинки</a></li>
+                <li><a href="rating.html">Рейтинг</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="slider-container">
+            <!-- Кнопка для перехода к предыдущему изображению -->
+            <button class="nav-button" id="prevButton">&lt;</button>
+
+            <!-- Слайдер -->
+            <div class="slider">
+                <img id="sliderImage">
+                <div class="image-info">
+                    <p>ID: <span id="imageId">1</span></p>
+                    <p>Лайки: <span id="likes">0</span></p>
+                    <p>Дизлайки: <span id="dislikes">0</span></p>
+                </div>
+                <div class="like-buttons">
+                    <button class="like-button" id="likeButton">👍 Лайк</button>
+                    <button class="like-button" id="dislikeButton">👎 Дизлайк</button>
+                </div>
+            </div>
+
+            <!-- Кнопка для перехода к следующему изображению -->
+            <button class="nav-button" id="nextButton">&gt;</button>
+        </div>
+    </main>
+
+    <!-- Подключение скрипта для управления галереей -->
+    <script src="js/gallery.js"></script>
+</body>
+
+</html>
