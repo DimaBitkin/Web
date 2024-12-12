@@ -11,5 +11,5 @@ function calculateAbs() {
         let result = Math.abs(x);
         // Выводим результат на страницу
         document.getElementById("result").innerHTML = "Абсолютное значение: " + result;
-    }
+    } вроде нормально
 }
